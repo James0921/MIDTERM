@@ -36,10 +36,46 @@ const App = () => {
 
 
   return (
-    <div>
-      <h1>Student Recording System</h1>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        height: "100vh",
+        backgroundColor: "#855160",
+        color: "#000", 
+      }}
+    >
+      <img
+        src="/headerimage.jpg"
+        alt="Student Recording System Logo"
+        style={{
+          width: "auto",
+          height: "100px",
+          marginBottom: "10px",
+        }}
+      />
+      <h1 style={{ fontWeight: "bold" }}>Student Recording System</h1>
       <StudentForm addStudent={addStudent} />
-      <StudentList students={students} />
+
+      <h2 style={{ marginTop: "20px" }}>Student List</h2>
+      <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+        <ul
+          style={{
+            listStylePosition: "inside", 
+            textAlign: "left", 
+            padding: 0,
+          }}
+        >
+          {students.map((student, index) => (
+            <li key={index} style={{ marginBottom: "5px" }}>
+              {student.name} - {student.course}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
